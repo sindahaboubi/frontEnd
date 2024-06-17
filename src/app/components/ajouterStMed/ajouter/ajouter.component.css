@@ -1,0 +1,37 @@
+.tst{
+    margin-top:4%;
+    width:50%;
+    margin-left: 20%;
+    box-shadow: 10px 20px 20px rgba(50,60,60,0.2);
+    padding: 5px;
+    border-radius:5px;
+    border: 3px solid rgba(125, 110, 255, 0.3)
+}
+.bt{
+    margin-left: 8%;
+    margin-top: 1%;
+    font-size:35px;
+    background-color: coral;
+    color: #fff;
+}
+.img{
+    margin-top: 7%;
+    margin-left:16%;
+    
+}
+
+.test{
+    position:relative;
+    z-index: 1000;
+    right:25%;
+    top: 13%;
+    
+}
+
+.elm{
+    position: fixed;
+    bottom:20%;
+
+    z-index: 1000;
+}
+

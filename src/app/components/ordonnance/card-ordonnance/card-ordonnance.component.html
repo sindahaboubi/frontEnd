@@ -1,0 +1,56 @@
+<mat-card class="card p-1" style="float: left;height: 30%;width: auto;">
+  <form [formGroup]="PriseForm" (ngSubmit)="callParent()">
+
+  <mat-card-header>
+    <mat-card-title>{{medicament.nom}} {{medicament.dosage}}</mat-card-title>
+    <mat-card-subtitle></mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div  style="float: left;">
+      <p>
+          {{medicament.description}}
+        </p>
+        <br>
+
+        <mat-form-field color="accent" appearance="fill">
+          <mat-label>dateDebutPrise</mat-label>
+          <input formControlName="dateDebutPrise" matInput [matDatepicker]="picker1">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        
+        <mat-form-field color="accent" appearance="fill">
+          <mat-label>dateFinPrise</mat-label>
+          <input formControlName="dateFinPrise" matInput [matDatepicker]="picker2">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2 color="primary"></mat-datepicker>
+        </mat-form-field>
+
+    </div>
+
+    <div style="float: right;">
+      <div style="float: left; margin-left:7%; margin-top: 6%;" >
+          <mat-form-field class="example-full-width" appearance="fill"  style="width: 15%;margin: 1%;">
+              <mat-label>prisejour</mat-label>
+              <input matInput formControlName="prisejour" placeholder="prisejour">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill"  style="width: 15%;margin: 1%;">
+            <mat-label>prisemidi</mat-label>
+              <input matInput formControlName="prisemidi" placeholder="prisemidi" >
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill" style="width: 15%;margin: 1%;">
+            <mat-label>prisesoir</mat-label>
+              <input matInput formControlName="prisesoir" placeholder="prisesoir" >
+            </mat-form-field>
+    </div>
+    <div > 
+      <img [src]="medicament.img" style="width:15% ;height:15%;" />
+    </div>
+  </div>
+  </mat-card-content>
+    <button class="btn btn-success m-1 btn_valid" id="btn" [disabled]="PriseForm.invalid">Valider le médicament</button>
+    <span id ="checkedB"style="display:none;"><i class="fa fa-check" style="color:green;"></i></span>
+</form>
+</mat-card>

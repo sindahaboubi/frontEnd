@@ -1,0 +1,102 @@
+<div class="page" >
+    <app-menu-user style="float: left;"></app-menu-user>
+    
+    <div class="container" style=" width:100%;">
+    <div class="container">
+        <h1 class="titrepage"><i class="fa-solid fa-pen"></i> Modifier le stock de votre médicament {{consommation.med.nom}} </h1>
+        <div class="main-body"> 
+              <div class="row gutters-sm">
+                <div class="col-md-4 mb-3">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="d-flex flex-column align-items-center text-center">
+                        <img src="assets/image/doliprane.jpg" height="10%" width="10%" alt="imageMedic" style="border-radius:25px;">
+                        <div class="mt-3">
+                            <p class="text-secondary mb-1">{{consommation.med.description}}</p>
+                        </div>
+
+                      <form #editForm="ngForm">
+                          <div class="form-group"> 
+                              <label for="name">Quantité de stock</label>
+                              <input type="number" name="qte_stock" [(ngModel)]="consommation.qte_stock" class="form-control" id="qte_stock">
+                           </div>
+                      
+                              <button class="btnModifStock" type="submit" (click)="updateStockById()" >Enregistrer</button>
+                      </form>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="card mb-3">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Nom</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                          {{consommation.med.nom}}
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Unité</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                          {{consommation.med.unite?.valeur}}
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Date d'expiration</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                          {{consommation.med.dateExpiration |date}}
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Prix</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                          {{consommation.med.prix}}
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Dosage</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                          {{consommation.med.dosage}} 
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Fabricant</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                          {{consommation.med.fabricant}}
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Quantité</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                          {{consommation.med.quantite}}
+                      </div>
+                    </div>                      
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>        
+      </div>

@@ -1,0 +1,26 @@
+<h1 class="text-center">Ajouter une ordonnance</h1>
+<pre class="text-center">Ci dessous vous pouvez ajouter un ou plusieurs médicaments avec le bouton "+" puis vous devez entrer le nom du médicament et le valider.
+    En cas d'erreur vous pouvez supprimer le médicament en question en cliquant sur le bouton "🚮" 
+    Une fois tous les médicaments inscrits, vous pouvez valider avec le bouton "Valider"</pre>
+
+<form class="example-form text-center">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Medicament</mat-label>
+        <input matInput aria-label="Medicament" [matAutocomplete]="auto" [(ngModel)]="medSearch" name="in">
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="getMed($event.option.value)">
+            <mat-option *ngFor="let med of medicaments | medicamentFilter:medSearch" [value]="med.id" >
+                <img class="example-option-img" aria-hidden [src]="med.img" height="25">
+                <span>{{med.nom}}</span> |
+                <small>Dosage : {{med.dosage}}</small>
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+</form>
+<div style="margin-left: 9%;" *ngFor="let med of medicamentajoute">
+    <div style="display: inline-block;margin:1%">
+        <app-card-ordonnance [medicament]="med" (priseEvent)="addToPrises($event)"></app-card-ordonnance>
+    <button (click)="suppr(med)" style="margin-top: 8%; margin-left: 5px;" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+    </div>
+</div>
+<br>
+<button style="position: relative;left: 43%;bottom: -5%;" (click)="ajouterOrd()" [disabled]="medicamentajoute.length==0" class="btn btn-success" routerLink="/listOrd">Valider l'ordonnance <i class="fa-solid fa-square-check"></i></button>

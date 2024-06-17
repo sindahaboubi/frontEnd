@@ -1,0 +1,81 @@
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+header {
+  height: 20%;
+  padding: 2% 0;
+  background: repeating-linear-gradient(45deg, #f0f2ed, #f0f2ed 20px, #f8f4eb 20px, #f8f4eb 40px);
+  box-shadow: 0 4px 6px rgba(0,0,0,.2);  
+}
+.container {
+  padding: 0 ;
+  max-width: 90%;
+  margin: 0 auto;
+}
+.logo-box {
+  float: left;
+  margin-left:-2%;
+  margin-top:-2.5%;
+}
+.logo-box a {
+  outline: none;
+  display: block;
+}
+div {
+  overflow: hidden;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: right;
+}
+div li {
+  display: inline-block;
+  margin-left: 25px;
+  height: 10%;
+  line-height: 70px;
+  transition: .5s linear;
+}
+div a {
+  text-decoration: none;
+  display: block;
+  position: relative;
+  color: #868686;
+  text-transform: uppercase;
+}
+div a:after {
+  content: "";
+  width: 0;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  bottom: 15px;
+  background: #868686;
+  transition: width .5s linear;  
+}
+div a:hover:after {width: 100%;}
+
+@media screen and (max-width: 660px) {
+  header {text-align: center;}
+  .logo-box {
+    float: none;
+    display: inline-block;
+    margin: 0 0 16px 0;
+  }
+  ul {float: none;}
+  div li:first-of-type {margin-left: 0;}
+}
+@media screen and (max-width: 550px) {
+  div {overflow: visible;}
+  div li {
+  display: block;
+  margin: 0;
+  height: 40px;
+  line-height: 40px;
+}
+div li:hover {background: rgba(0,0,0,.1);}
+div a:after {content: none;}
+}

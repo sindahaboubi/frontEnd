@@ -1,0 +1,76 @@
+
+<pre class="text-center" style="margin-left:1%;margin-top:3%;">Ci dessous, vous pouvez consulter votre liste des ordonnances.
+    Après avoir confirmer votre choix, vous pouvez supprimer le médicament en question en cliquant sur le bouton "🚮" 
+    Une fois la suppression est validée, les heures de prise seront aussi annulées</pre>
+    <div class="text-center" style="font-size: 25px;margin-top: 2%;">
+      <input type="radio" (click)="getOrdInactive()" />Inactives 
+      <!-- {{prisesFinie |json}}  -->
+      <!-- {{ordonnancesInac |json}} -->
+    </div>
+    
+
+<div class="container">
+    <div class="row row-cols-4">
+      <div class="col"  *ngFor="let o of ord;index as i">
+        <h2>Prises</h2>
+        <div class="card" >
+            <lib-ngx-image-zoom
+                 [thumbImage]=o.piece_jointe
+                 fullImage="./../../../../assets/image/ordfull.jpg"
+                 [enableLens]="true"
+                 [enableScrollZoom]="true"
+                 [scrollStepSize]="0.3"
+                 [lensWidth]="200"
+            >
+            </lib-ngx-image-zoom>
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <p class="card-text">Pour plus de detail Mr <strong>{{o.utilisateur.nom}}</strong>
+                clicker sur<a href="" class="btn btn-link"> details</a>
+             </p>
+             <button class="btn btn-outline-warning" (click)="SupprimerOrd(i)" style="margin-bottom:3%;margin-left:30%;">
+                Supprimer
+             </button>
+             <br>
+              <p class="card-text"><small class="text-muted">utilisteur {{o.utilisateur.nom}}</small></p>
+            </div>
+      </div>
+    </div>
+</div>
+
+
+<!-- ordonnances inactives -->
+<div class="container" style="margin-left:1%;margin-top:3%;">
+  <div class="row row-cols-4">
+    <div class="col"  *ngFor="let o of ordonnancesInac;index as i">
+      <h2>Prises</h2>
+      <div class="card" >
+          <lib-ngx-image-zoom
+               [thumbImage]=o.piece_jointe
+               fullImage="./../../../../assets/image/ordfull.jpg"
+               [enableLens]="true"
+               [enableScrollZoom]="true"
+               [scrollStepSize]="0.3"
+               [lensWidth]="200"
+          >
+          </lib-ngx-image-zoom>
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text">Pour plus de detail Mr <strong>{{o.utilisateur.nom}}</strong>
+              cliquer sur<a href="" class="btn btn-link"> details</a>
+           </p>
+           <button class="btn btn-outline-warning" (click)="SupprimerOrd(i)" style="margin-bottom:3%;margin-left:30%;">
+              Supprimer
+           </button>
+           <br>
+            <p class="card-text"><small class="text-muted">utilisteur {{o.utilisateur.nom}}</small></p>
+          </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+  

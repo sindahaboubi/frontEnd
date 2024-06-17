@@ -1,0 +1,35 @@
+<h1>Liste des medicament</h1>
+<h3>Veuillez choisis d'ici</h3>
+<mat-list #meds class="tst" style="min-height:40%;">
+    <mat-list-item  *ngFor="let med of medics;index as i"  >
+        <div class="w-100" style="display:inline;">
+        <img [src]="med.img" class="rounded-circle" width="50" height="50" /> 
+        {{med.nom}} -- {{med.prix}} -- {{med.dosage}}mg -- {{med.unite?.valeur}}
+        </div>
+        <div class="d-flex flex-row-reverse">
+           <button class="rounded-circle btn btn-dark" (click)="annulerMedicamentStq(i,med.id)" *ngIf="verifCoche(i)">-</button>
+            <button class="rounded-circle btn btn-danger" (click)="transfererMedic(med.id,i)">+</button>
+            
+        </div>
+    <br>
+    </mat-list-item >
+  </mat-list>
+
+<div class="badge" >
+  <form #mediForm style="display:inline;">
+    
+    <div style="display:inline-flex;"  *ngFor="let m of medics_cocher;index as i">
+        <h4 style="margin-left:5%;" style="display:inline;" class="badge bg-dark" >{{m.nom}} - {{consomation[i].qte_stock}}</h4>
+        <div class=""   >
+            
+        </div>
+        <br *ngIf="medics_cocher.length==10 || medics_cocher.length==20">
+    </div>  
+    <button *ngIf="medics_cocher.length != 0" class=" rounded-circle btn-warning  btn"  (click)="confirmerAjoutMed()" >valider</button>   
+  </form>
+  
+
+
+   
+  
+</div>

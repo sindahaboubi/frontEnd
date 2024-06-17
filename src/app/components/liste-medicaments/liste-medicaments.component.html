@@ -1,0 +1,39 @@
+
+
+<!-- Rechercher-->
+<h1  class="text-center m-4"style="color:#330867">Trouvez vos medicaments</h1>
+<div class="col-md-12 align-self-center" >
+  <a href="/ajouter"><button class="btn btn-success" style="position:relative;left:80%" ><i class="fa fa-plus-circle" aria-hidden="true"></i> Ajouter medicament</button></a>
+  <br>
+  <a href="/pharmacies"><button class="btn btn-success" style="position:relative;left:80%;margin-top:1% ;" ><i class="fa fa-plus-circle" aria-hidden="true"></i> Rechercher pharmacies </button></a>
+</div>
+
+<br>
+<p class="text-center ">Nos meilleurs solutions pour que vous restez à jour </p>
+<p class="text-center test">Verifier l'existance de vos medicaments en temps réel</p>
+
+<div class="row" style="width:98%">
+  <div class="col-sm-4" *ngFor="let med of listeMed">
+    <div class="card" style="height:100%">
+          <div class="card-body">
+            <img [src]="med.img" width="70%" height="100%" >
+          </div>
+          <div class="container">
+          <h1 class="col-md"style="font-size: 30px;margin:1%;padding:1%;">{{med.nom|titlecase}} </h1><br>
+          <div class="example-button-container col-md-4">
+            <div mat-fab color="accent" style="font-size:120%">
+              Quantite: {{med.quantite}}
+            </div>
+              <div mat-fab color="accent" style="font-size:120%">
+                Dosage: {{med.dosage}}
+                <p ><i class="fas fa-coins"></i>Unite: {{med.unite?.valeur}}</p>
+              </div>
+            </div>
+      </div>
+          <div class="card-footer">
+              <button class="btn btn-success "  [routerLink]="['/medicaments',med.id]">Details</button>
+              <button class="btn btn-danger " ><i class="fa fa-trash" aria-hidden="true"></i></button>
+          </div>
+  </div>
+</div>
+

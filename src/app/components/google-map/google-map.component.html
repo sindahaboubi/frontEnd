@@ -1,0 +1,40 @@
+<!-- <google-map height="400px"
+            width="750px"
+            >
+</google-map> -->
+
+<!-- 
+<div id="map" style="height: 50%;width: 50%;margin: 20%;margin-bottom: 30%;">
+</div> -->
+
+<div style="margin:5%;">
+  <h1 class="text-center">Chercher des pharmacies proches</h1>
+<pre class="text-center">Ci dessous vous pouvez chercher à partir de votre adresse
+    En cas de chagement d'adresse vous pouvez saisir le nom du ville dans la zone input ci dessous.
+    Une fois terminer, vous pouvez valider avec le bouton "Valider"</pre>
+
+    <form class="example-form text-center">
+      <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Ville</mat-label>
+          <input matInput aria-label="Ville" id="input" #adr>
+      </mat-form-field>
+      <br>
+      <button mat-button class="btn btn-primary mb-2" (click)="addressChange(adr.value)">Valider</button>
+  </form>
+
+  <div class="text-center">
+<iframe 
+id="frame"
+  width="600"
+  height="450" 
+  style="border:0;margin-bottom: 10%;"
+  loading="lazy"
+  allowfullscreen
+  referrerpolicy="no-referrer-when-downgrade"
+  alt="carte"
+  >
+</iframe>
+</div>
+
+</div>
+
